@@ -1,0 +1,233 @@
+/* 内部所有的元素都去除padding、margin、边框、并附带5像素圆角 */
+* {
+    padding: 0%;
+    margin: 0%;
+    border: 0px;
+    border-radius: 8px;
+}
+
+/* html、div、body都执行行内横向布局，默认撑满父项，垂直与水平居中，背景图填充居中 */
+html,
+div,
+body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-content: center;
+    justify-content: center;
+    background-size: cover;
+    /* 覆盖整个页面 */
+    background-repeat: no-repeat;
+    /* 禁止重复 */
+    background-position: center;
+    /* 居中显示 */
+    background-attachment: fixed;
+
+
+}
+
+body {
+    align-content: center;
+
+}
+
+/* 表格边框恢复直角 */
+td {
+    border-radius: 0px;
+
+
+}
+
+.center_box {
+    display: flex;
+    flex-wrap: wrap;
+    /* 内部元素允许换行 */
+    flex-direction: column;
+    /* 纵向布局 */
+    justify-content: start;
+    width: 30%;
+    min-width: 320px;
+    min-height: 300px;
+    background-color: #f3f3f3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* 超出部分不显示 */
+    overflow: hidden;
+    padding: 15px;
+}
+
+.function_box_row,
+.function_box_col {
+    display: flex;
+    flex-wrap: wrap;
+    /* 内部元素允许换行 */
+    flex-direction: row;
+    /* 横向布局 */
+    width: 50%;
+    min-width: 350px;
+    padding: 15px;
+    height: auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+.function_box_col {
+
+    flex-direction: column;
+    /* 纵向布局 */
+
+
+}
+
+.notify_bg {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8888;
+    /* 默认隐藏 */
+    display: none;
+}
+
+
+.notify_content {
+    display: flex;
+    flex-wrap: wrap;
+    /* 内部元素允许换行 */
+    flex-direction: column;
+    /* 纵向布局 */
+    justify-content: start;
+    width: 30%;
+    min-width: 320px;
+    height: 300px;
+    background-color: #f3f3f3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 8888;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* 超出部分不显示 */
+    overflow: hidden;
+
+}
+
+.notify_title {
+    height: 40px;
+    background-color: #3498db;
+    width: 100%;
+    color: white;
+    border-radius: 0px;
+}
+
+.waiting {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-content: center;
+    z-index: 8887;
+    display: none;
+    /* 默认隐藏 */
+}
+
+/* 转圈动画样式 */
+.spinner-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    height: 120px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.button,
+.cancel {
+
+    width: 120px;
+    height: 40px;
+    background-color: rgb(9, 105, 73);
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: background-color 0.3s, transform 0.3s;
+    /* 添加过渡效果 */
+
+}
+
+.button:hover,
+.cancel:hover {
+    background-color: rgb(12, 135, 85);
+    /* 鼠标悬浮时的背景颜色 */
+    transform: translateY(-2px);
+    /* 稍微上移以增加交互感 */
+}
+
+.button:active,
+.cancel:active {
+    background-color: rgb(6, 95, 63);
+    /* 鼠标按下时的背景颜色 */
+    transform: translateY(2px);
+    /* 稍微下移以增加交互感 */
+}
+
+.cancel {
+
+    background-color: rgb(101, 102, 102);
+    color: white;
+
+    /* 添加过渡效果 */
+
+}
+
+.cancel:hover {
+    background-color: rgb(83, 83, 83);
+    /* 鼠标悬浮时的背景颜色 */
+}
+
+.cancel:active {
+    background-color: rgb(77, 77, 77);
+    /* 鼠标按下时的背景颜色 */
+}
+
+input,select {
+    border-radius: 5px;
+    border: solid 1px;
+    font-size: 16px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
